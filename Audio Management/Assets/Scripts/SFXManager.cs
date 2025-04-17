@@ -28,16 +28,11 @@ public class SFXManager : MonoBehaviour
         eventChannel.OnAudioPlayRequested -= PlaySFX;
     }
 
-    private void PlaySFX(AudioClip audioClip, bool shouldFade)
+    private void PlaySFX(AudioClip audioClip, AudioPlayerSettingsSO settings)
     {
         var audioClipPlayer = pool.Request();
-        audioClipPlayer.PlayAudioClip(audioClip, shouldFade);
+        audioClipPlayer.PlayAudioClip(audioClip, settings);
         audioClipPlayer.onFinishedPlaying += StopAndCleanAudioClipPlayer;
-    }
-
-    private void StopSFX(AudioClip audioClip, bool shouldFade)
-    {
-
     }
 
     private void StopAndCleanAudioClipPlayer(AudioSourcePlayer audioSourcePlayer)

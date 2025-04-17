@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: a786463559e9aab418c862cf42b715bb, type: 3}
-  shouldFade: 1
+  shouldFade: {fileID: 11400000, guid: 9fb942683ba945742b24208cb4713422, type: 2}
   requestEventChannel: {fileID: 11400000, guid: a297dd8da5686ed47ac2a01472a0ed86, type: 2}
 --- !u!1 &650841247
 GameObject:
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b68fc3619a8a5bf498b44d175be7a43e, type: 3}
-  shouldFade: 0
+  shouldFade: {fileID: 11400000, guid: e36731519ccdb4b47ba768985979e51f, type: 2}
   requestEventChannel: {fileID: 11400000, guid: b68ffd7bcaf9f804ab9e1385e3bbf234, type: 2}
 --- !u!1 &1298717277
 GameObject:
@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 9c7c68d1229977742a544f0751cc8b03, type: 3}
-  shouldFade: 0
+  shouldFade: {fileID: 11400000, guid: e36731519ccdb4b47ba768985979e51f, type: 2}
   requestEventChannel: {fileID: 11400000, guid: b68ffd7bcaf9f804ab9e1385e3bbf234, type: 2}
 --- !u!1 &1344095093
 GameObject:
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ec37ae1ada4bacf43a65df7bb30e5899, type: 3}
-  shouldFade: 1
+  shouldFade: {fileID: 11400000, guid: 9fb942683ba945742b24208cb4713422, type: 2}
   requestEventChannel: {fileID: 11400000, guid: a297dd8da5686ed47ac2a01472a0ed86, type: 2}
 --- !u!1 &1464802281
 GameObject:
@@ -761,37 +761,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool: {fileID: 11400000, guid: 7153594fc0c90634194f829642464090, type: 2}
   eventChannel: {fileID: 11400000, guid: b68ffd7bcaf9f804ab9e1385e3bbf234, type: 2}
---- !u!1 &1501521232
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1501521233}
-  m_Layer: 0
-  m_Name: SFX Request
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1501521233
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501521232}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1889339300
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: e9c3433a69c25634d8582e73ca36d5bb, type: 3}
-  shouldFade: 0
+  shouldFade: {fileID: 11400000, guid: e36731519ccdb4b47ba768985979e51f, type: 2}
   requestEventChannel: {fileID: 11400000, guid: b68ffd7bcaf9f804ab9e1385e3bbf234, type: 2}
 --- !u!1001 &188380450114415924
 PrefabInstance:
@@ -1012,5 +981,4 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 129610788}
-  - {fileID: 1501521233}
   - {fileID: 297586448}

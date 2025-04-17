@@ -28,13 +28,13 @@ public class AudioManager : MonoBehaviour
     /// Plays the provided AudioClip via the AudioSourcePlayer.
     /// </summary>
     /// <param name="clip">The AudioClip to be played.</param>
-    protected virtual void PlayAudioClip(AudioClip clip, bool shouldFade)
+    protected virtual void PlayAudioClip(AudioClip clip, AudioPlayerSettingsSO settings)
     {
         // Don't play if there is no audio clip to play or if it's already playing the requested audio clip.
         if (clip == null || (clip != null && clip == _audioPlayer.ClipPlaying))
             return;
 
-        _audioPlayer.PlayAudioClip(clip, shouldFade);
+        _audioPlayer.PlayAudioClip(clip, settings);
     }
 
     /// <summary>

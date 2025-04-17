@@ -6,14 +6,11 @@ public class AudioRequester : MonoBehaviour
     protected AudioClip clip;
 
     [SerializeField] 
-    protected bool shouldFade;
+    protected AudioPlayerSettingsSO shouldFade;
 
     [SerializeField]
     protected AudioClipEventChannel requestEventChannel;
 
     [ContextMenu("Request")]
-    protected void RequestPlayAudioClip()
-    {
-        requestEventChannel.RaisePlayAudioEvent(clip, shouldFade);
-    }
+    protected void RequestPlayAudioClip() => requestEventChannel.RaisePlayAudioEvent(clip, shouldFade);
 }

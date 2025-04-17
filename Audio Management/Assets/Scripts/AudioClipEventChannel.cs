@@ -4,13 +4,13 @@ using UnityEngine.Events;
 /// <summary>
 /// ScriptableObject-based event channel to handle AudioClip requests.
 /// </summary>
-[CreateAssetMenu(fileName = "AudioClip Event Channel", menuName = "ScriptableObject/Event Channel/AudioClip Event Channel")]
+[CreateAssetMenu(fileName = "AudioClip Event Channel", menuName = "Scriptable Objects/Event Channel/AudioClip Event Channel")]
 public class AudioClipEventChannel : ScriptableObject
 {
     /// <summary>
     /// Event triggered when an audio play action request is raised.
     /// </summary>
-    public UnityAction<AudioClip, bool> OnAudioPlayRequested;
+    public UnityAction<AudioClip, AudioPlayerSettingsSO> OnAudioPlayRequested;
 
     /// <summary>
     /// Event triggered when an audio stop action request is raised.
@@ -21,10 +21,10 @@ public class AudioClipEventChannel : ScriptableObject
     /// Raises the event to request an AudioClip to be played.
     /// </summary>
     /// <param name="clip"></param>XD
-    public void RaisePlayAudioEvent(AudioClip clip, bool shouldFade)
+    public void RaisePlayAudioEvent(AudioClip clip, AudioPlayerSettingsSO settings)
     {
         if (clip != null && OnAudioPlayRequested != null)
-            OnAudioPlayRequested.Invoke(clip, shouldFade);
+            OnAudioPlayRequested.Invoke(clip, settings);
     }
 
     /// <summary>

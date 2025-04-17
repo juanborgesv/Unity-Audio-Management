@@ -89,11 +89,14 @@ public class AudioSourcePlayer : MonoBehaviour
     /// </summary>
     /// <param name="clip">The audio clip to play.</param>
     /// <param name="shouldFade">Whether to fade in the audio clip.</param>
-    public void PlayAudioClip(AudioClip clip, bool shouldFade = false)
+    public void PlayAudioClip(AudioClip clip, AudioPlayerSettingsSO settings)
     {
+        // Apply settings to the audio source.
+        settings.ApplySettings(_audioSource);
+
         if (_fadeCoroutine != null) StopCoroutine(_fadeCoroutine);
 
-        if (shouldFade && _fadeDuration > 0f)
+        if (settings.ShouldFade && _fadeDuration > 0f)
         {
             if (_audioSource.isPlaying)
             {
@@ -116,7 +119,6 @@ public class AudioSourcePlayer : MonoBehaviour
         {
             // Play AudioClip directly at normal volume immediately.
             _audioSource.clip = clip;
-            _audioSource.volume = 1;
             _audioSource.Play();
 
             if (!_audioSource.loop)
