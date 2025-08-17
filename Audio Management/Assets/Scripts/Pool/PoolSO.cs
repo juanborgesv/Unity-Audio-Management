@@ -10,7 +10,7 @@ public abstract class PoolSO<T> : ScriptableObject, IPool<T>
     [SerializeField, Min(1)]
     protected uint initialSize = 1;
 
-    protected readonly Stack<T> Available = new Stack<T>();
+    protected readonly Stack<T> Available = new ();
 
     /// <summary>
     /// The factory which will be used to create <typeparamref name="T"/> on demand.
@@ -47,28 +47,17 @@ public abstract class PoolSO<T> : ScriptableObject, IPool<T>
             return;
         }
 
-        // Assign initial size and prewarm.
-        initialSize = (uint)num;
-        Prewarm();
+        for (int i = 0; i < num; i++)
+            Available.Push(Create());
+
+        HasBeenPrewarmed = true;
     }
 
     /// <summary>
     /// Prewarms the pool with a <paramref name="initialSize"/> of <typeparamref name="T"/>.
     /// </summary>
     /// <remarks>NOTE: This method can be called at any time, but only once for the lifetime of the pool.</remarks>
-    public virtual void Prewarm()
-    {
-        if (HasBeenPrewarmed)
-        {
-            Debug.LogWarning($"Pool {name} has already been prewarmed.");
-            return;
-        }
-
-        for (int i = 0; i < initialSize; i++)
-            Available.Push(Create());
-
-        HasBeenPrewarmed = true;
-    }
+    public virtual void Prewarm() => Prewarm((int)initialSize);
 
     /// <summary>
     /// Requests a <typeparamref name="T"/> from this pool.

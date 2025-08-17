@@ -18,12 +18,12 @@ public class AudioSourcePlayer : MonoBehaviour
     /// <summary>
     /// The audio source component attached to this game object.
     /// </summary>
-    AudioSource _audioSource;
+    private AudioSource _audioSource;
 
     /// <summary>
     /// The coroutine handling the fade effect.
     /// </summary>
-    Coroutine _fadeCoroutine;
+    private Coroutine _fadeCoroutine;
 
     /// <summary>
     /// Event that notifies when the audio source has finished playing the 
@@ -41,10 +41,7 @@ public class AudioSourcePlayer : MonoBehaviour
     /// </summary>
     public AudioClip ClipPlaying => _audioSource.clip;
 
-    private void Awake()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
+    private void Awake() => _audioSource = GetComponent<AudioSource>();
 
     /// <summary>
     /// Plays the audio source.
