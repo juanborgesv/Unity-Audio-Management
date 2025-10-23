@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ba5641e92ef07469cdc843925a0920, type: 3}
+  m_Script: {fileID: 11500000, guid: 05d618408a1f8cd4f84578190ef0dec9, type: 3}
   m_Name: Music Requests EC
   m_EditorClassIdentifier: 

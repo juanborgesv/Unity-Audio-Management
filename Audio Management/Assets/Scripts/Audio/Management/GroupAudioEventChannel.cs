@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 /// <summary>
 /// ScriptableObject-based event channel to handle AudioClip action requests.
 /// </summary>
-[CreateAssetMenu(fileName = "AudioClip Event Channel", menuName = "Scriptable Objects/Event Channel/AudioClip Event Channel")]
-public class AudioClipEventChannel : ScriptableObject
+[CreateAssetMenu(fileName = "AudioClip Event Channel", menuName = "Scriptable Objects/Event Channel/Group Audio Event Channel")]
+public class GroupAudioEventChannel : ScriptableObject
 {
     /// <summary>
     /// Event triggered when an audio play action request is raised.
@@ -20,17 +19,31 @@ public class AudioClipEventChannel : ScriptableObject
     /// <summary>
     /// Event triggered when an audio pause action request is raised.
     /// </summary>
-    public AudioPauseAction OnAudioPauseRequested;
+    public AudioByIdAction OnAudioPauseRequested;
+
+    /// <summary>
+    /// Event triggered when an audio play action request is raised. It might 
+    /// act as resume in case the audio was paused.
+    /// </summary>
+    public AudioByIdAction OnAudioResumeRequested;
 
     /// <summary>
     /// Raises the event to request an AudioClip to be played.
     /// </summary>
     /// <param name="clip"></param>
     /// /// <param name="settings"></param>
-    public void RaisePlayAudioEvent(AudioClip clip, AudioPlayerSettingsSO settings)
+    public int RaisePlayAudioEvent(AudioClip clip, AudioPlayerSettingsSO settings)
     {
         if (clip != null && OnAudioPlayRequested != null)
-            OnAudioPlayRequested.Invoke(clip, settings);
+            return OnAudioPlayRequested.Invoke(clip, settings);
+
+        return -1; // Invalid ID due to not playing the audio requested.
+    }
+
+    public void RaisePlayAudioEvent(int audioId)
+    {
+        if (audioId != -1 && OnAudioStopRequested != null)
+            OnAudioResumeRequested?.Invoke(audioId);
     }
 
     /// <summary>
@@ -66,4 +79,4 @@ public class AudioClipEventChannel : ScriptableObject
 
 public delegate int AudioPlayAction(AudioClip clip, AudioPlayerSettingsSO settings);
 public delegate void AudioStopAction(int id, bool fade);
-public delegate void AudioPauseAction(int id);
+public delegate void AudioByIdAction(int id);

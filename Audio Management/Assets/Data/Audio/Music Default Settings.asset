@@ -21,4 +21,4 @@ MonoBehaviour:
   pitch: 1
   panStereo: 0
   reverbZoneMix: 1
-  shouldFade: 0
+  shouldFade: 1
