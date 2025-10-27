@@ -89,11 +89,12 @@ public class AudioSourcePlayer : MonoBehaviour
     public void PlayAudioClip(AudioClip clip, AudioPlayerSettingsSO settings)
     {
         // Apply settings to the audio source.
-        settings.ApplySettings(_audioSource);
+        if (settings)
+            settings.ApplySettings(_audioSource);
 
         if (_fadeCoroutine != null) StopCoroutine(_fadeCoroutine);
 
-        if (settings.ShouldFade && _fadeDuration > 0f)
+        if (settings && settings.ShouldFade && _fadeDuration > 0f)
         {
             if (_audioSource.isPlaying)
             {
