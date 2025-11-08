@@ -66,34 +66,10 @@ public abstract class PoolSO<T> : ScriptableObject, IPool<T>
     public virtual T Request() => Available.Count > 0 ? Available.Pop() : Create();
 
     /// <summary>
-    /// Batch requests a <typeparamref name="T"/> collection from this pool.
-    /// </summary>
-    /// <returns>A <typeparamref name="T"/> collection.</returns>
-    public virtual IEnumerable<T> Request(int num = 1)
-    {
-        List<T> members = new (num);
-
-        for (int i = 0; i < num; i++)
-            members.Add(Request());
-
-        return members;
-    }
-
-    /// <summary>
     /// Returns a <typeparamref name="T"/> to the pool.
     /// </summary>
     /// <param name="member">The <typeparamref name="T"/> to return.</param>
     public virtual void Return(T member) => Available.Push(member);
-
-    /// <summary>
-    /// Returns a <typeparamref name="T"/> collection to the pool.
-    /// </summary>
-    /// <param name="members">The <typeparamref name="T"/> collection to return.</param>
-    public virtual void Return(IEnumerable<T> members)
-    {
-        foreach (T member in members)
-            Return(member);
-    }
 
     public virtual void OnDisable()
     {

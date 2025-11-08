@@ -49,16 +49,6 @@ public class GroupAudioEventChannel : ScriptableObject
     /// <summary>
     /// Raises the event to request stopping the currently playing audio.
     /// </summary>
-    /// <param name="shouldFade"></param>
-    public void RaiseStopAudioEvent(bool shouldFade)
-    {
-        if (OnAudioStopRequested != null)
-            OnAudioStopRequested.Invoke(0, shouldFade);
-    }
-
-    /// <summary>
-    /// Raises the event to request stopping the currently playing audio.
-    /// </summary>
     /// <param name="id">The id of the audio source player to stop.</param>
     /// <param name="shouldFade"></param>
     public void RaiseStopAudioEvent(int id, bool shouldFade)
