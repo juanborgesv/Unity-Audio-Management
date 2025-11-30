@@ -1,0 +1,26 @@
+{
+  "name": "com.juanborgesv.audiotoolkit",
+  "version": "1.0.1",
+  "displayName": "Audio Management Toolkit",
+  "description": "A modular, event-driven audio management framework for Unity. Includes systems for handling music, SFX, and custom audio behaviors with flexible playback control and ScriptableObject-based communication.",
+  "unity": "6000.0",
+  "unityRelease": "58f2",
+  "keywords": [
+    "audio",
+    "management",
+    "toolkit"
+  ],
+  "author": {
+    "name": "Juan Borges",
+    "email": "juan.vegaborges@gmail.com",
+    "url": "https://www.juanborgesv.com"
+  },
+  "type": "tool",
+  "samples": [
+    {
+      "displayName": "Audio Management Demo",
+      "description": "Includes a demo scene showcasing the Single and Group Audio Management systems with UI, prefabs, and example assets.",
+      "path": "Samples~/Demo"
+    }
+  ]
+}
